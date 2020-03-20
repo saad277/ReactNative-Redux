@@ -40,7 +40,7 @@ class FoodList extends Component {
 
     render() {
 
-        console.log(this.props.food);
+        
 
         return (
 

@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux'
 
-import { addFood } from '../Redux/actions'
+import { addFood, thunk } from '../Redux/actions'
 
 import React, { Component } from 'react';
 import {
@@ -26,7 +26,7 @@ class FoodForm extends Component {
 
   render() {
 
-    console.log(this.props);
+    
 
     return (
 
@@ -40,11 +40,16 @@ class FoodForm extends Component {
         <Button
           title="Submit"
           color="black"
-          onPress={()=>this.props.addFood(this.state.food)}
+          onPress={() => this.props.addFood(this.state.food)}
         />
         <Button
           title="Go To Food List"
           onPress={() => this.props.navigation.navigate("FoodList")}
+        />
+        <Button
+          title="Thunk"
+          color="green"
+          onPress={() => this.props.thunk()}
         />
 
       </View>
@@ -90,7 +95,8 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
 
-    addFood: (food) => dispatch(addFood(food))
+    addFood: (food) => dispatch(addFood(food)),
+    thunk: () => dispatch(thunk())
 
   }
 }

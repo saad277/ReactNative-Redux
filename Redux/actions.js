@@ -1,6 +1,6 @@
 
 
-import { ADD_FOOD, DELETE_FOOD } from './actionTypes';
+import { ADD_FOOD, DELETE_FOOD, ASYNC } from './actionTypes';
 
 export const addFood = (food) => {
 
@@ -19,9 +19,22 @@ export const deleteFood = (id) => {
     return {
 
         type: DELETE_FOOD,
-        id:id,
+        id: id,
     }
 
 
 }
 
+export const thunk = () => {
+
+    return (dispatch) => {
+
+        fetch("https://jsonplaceholder.typicode.com/users").
+            then((response) => response.json()).
+            then((response2) => console.log(response2[0].name))
+
+
+    }
+
+
+}
